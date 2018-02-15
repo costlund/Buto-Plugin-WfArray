@@ -88,4 +88,28 @@ class PluginWfArray{
     $this->array = wfArray::setUnset($this->array, $path_to_key);
   }
   
+  /**
+   * Set by id.
+   * @param type $id
+   * @param type $key
+   * @param type $value
+   */
+  public function setById($id, $key = null, $value){
+    wfPlugin::includeonce('wf/arraysearch');
+    $wf_arraysearch = new PluginWfArraysearch();
+    $wf_arraysearch->data = array('key_name' => 'id', 'key_value' => $id, 'data' => $this->array);
+    $data = $wf_arraysearch->get();
+    if(sizeof($data)>0){
+      $path_to_key = $data[0];
+      $path_to_key = substr($path_to_key, 1);
+      $path_to_key = str_replace('/attribute/id', '', $path_to_key);
+      if($key){
+        $this->set($path_to_key.'/'.$key, $value);
+      }else{
+        $this->set($path_to_key, $value);
+      }
+    }else{
+      echo 'Could not find element with id '.$id.'.<br>';
+    }
+  }
 }
