@@ -112,4 +112,43 @@ class PluginWfArray{
       echo 'Could not find element with id '.$id.'.<br>';
     }
   }
+  public function setByTag($data, $tag = 'rs', $clear_nomatch = false){
+    /**
+     * Include plugins.
+     */
+    wfPlugin::includeonce('wf/array');
+    wfPlugin::includeonce('wf/arraysearch');
+    /**
+     * Set array as object.
+     */
+    $element = new PluginWfArray($this->array);
+    $data = new PluginWfArray($data);
+    /**
+     * Search keys.
+     */
+    $search = new PluginWfArraysearch(true);
+    $search->data = array('key_name' => '', 'key_value' => '', 'data' => $element->get());
+    $keys = $search->get();
+    /**
+     * Loop keys.
+     */
+    foreach ($keys as $key => $value) {
+      $str = $element->get(substr($value, 1));
+      /**
+       * If key match.
+       */
+      if(substr($str, 0, strlen($tag)+1) == $tag.':'){
+        $tag_key = substr($str, strlen($tag)+1);
+        /**
+         * If key exist in data.
+         */
+        if(array_key_exists($tag_key, $data->array)){
+          $this->set(substr($value, 1), $data->get($tag_key));
+        }elseif($clear_nomatch){
+          $this->set(substr($value, 1), null);
+        }
+      }
+    }
+    return null;
+  }
 }
