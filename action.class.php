@@ -142,7 +142,7 @@ class PluginWfArray{
         /**
          * If key exist in data.
          */
-        if(array_key_exists($tag_key, $data->array)){
+        if($data->array && array_key_exists($tag_key, $data->array)){
           $this->set(substr($value, 1), $data->get($tag_key));
         }elseif($clear_nomatch){
           $this->set(substr($value, 1), null);
