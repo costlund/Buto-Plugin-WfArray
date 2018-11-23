@@ -1,0 +1,24 @@
+version: '1.0.1'
+history:
+  '1.0.1':
+    description: 'Rename class file and add manifest.'
+  '1.0':
+    description: 'First version.'
+plugin:
+  -
+    name: wf/arraysearch
+    version: '1.0.1'
+  -
+    name: wf/array
+    version: '1.0.1'
+sys:
+  -
+    name: mercury
+    version:
+      - '1.0'
+php:
+  - '7.2'
+author: Claes Östlund
+links:
+  - 'https://github.com'
+description: 'Handle arrays more effectively.'
