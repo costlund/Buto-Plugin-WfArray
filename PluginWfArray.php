@@ -151,4 +151,12 @@ class PluginWfArray{
     }
     return null;
   }
+  /**
+   * Merge data.
+   * @param array $value
+   */
+  public function merge($value){
+    $this->array = array_merge($this->array, $value);
+    return null;
+  }
 }

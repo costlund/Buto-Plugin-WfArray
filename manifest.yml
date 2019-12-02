@@ -1,9 +1,17 @@
-version: '1.0.1'
+version: '1.1.0'
 history:
+  '1.1.0':
+    date: '2019-12-02'
+    title: Merge method
+    description: 'Add merge method.'
   '1.0.1':
+    date: '2018-11-23'
+    title: Manifest
     description: 'Rename class file and add manifest.'
-  '1.0':
-    description: 'First version.'
+  '1.0.0':
+    date: '2017-10-16'
+    title: First version
+    description: 'First version created.'
 plugin:
   -
     name: wf/arraysearch
