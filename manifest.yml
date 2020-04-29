@@ -1,5 +1,9 @@
-version: '1.1.0'
+version: '1.2.0'
 history:
+  '1.2.0':
+    date: '2020-04-29'
+    title: setByTag
+    description: 'Method setByTag can handle nestled array values.'
   '1.1.0':
     date: '2019-12-02'
     title: Merge method
