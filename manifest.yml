@@ -1,28 +1,28 @@
-version: '1.2.0'
+version: 1.2.0
 history:
-  '1.2.0':
+  1.2.0:
     date: '2020-04-29'
     title: setByTag
     description: 'Method setByTag can handle nestled array values.'
-  '1.1.0':
+  1.1.0:
     date: '2019-12-02'
-    title: Merge method
+    title: 'Merge method'
     description: 'Add merge method.'
-  '1.0.1':
+  1.0.1:
     date: '2018-11-23'
     title: Manifest
     description: 'Rename class file and add manifest.'
-  '1.0.0':
+  1.0.0:
     date: '2017-10-16'
-    title: First version
+    title: 'First version'
     description: 'First version created.'
 plugin:
   -
     name: wf/arraysearch
-    version: '1.0.1'
+    version: 1.0.1
   -
     name: wf/array
-    version: '1.0.1'
+    version: 1.2.0
 sys:
   -
     name: mercury
@@ -30,7 +30,7 @@ sys:
       - '1.0'
 php:
   - '7.2'
-author: Claes Östlund
+author: 'Claes Östlund'
 links:
   - 'https://github.com'
 description: 'Handle arrays more effectively.'
