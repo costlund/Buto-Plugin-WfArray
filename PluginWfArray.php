@@ -47,14 +47,11 @@ class PluginWfArray{
       }
     }
   }
-  
-  
   /**
-   * 
-   * @param type $value
-   * @param type $path_to_key String is the path to array key. If true unassociative array key will be set.
+   * Set data.
+   * @param data $path_to_key String to where to save or true to save as unassociative key.
+   * @param data $value Any value.
    */
-  //public function set($value, $path_to_key = null){
   public function set($path_to_key, $value){
     if($path_to_key || $path_to_key === 0){
       if($path_to_key === true){
@@ -66,7 +63,6 @@ class PluginWfArray{
       $this->array = $value;
     }
   }
-  
   public function dump($path_to_key = null){
     if(strlen($path_to_key)){
       wfHelp::yml_dump(wfArray::get($this->array, $path_to_key));
