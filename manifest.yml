@@ -1,5 +1,9 @@
-version: 1.2.0
+version: 1.2.1
 history:
+  1.2.1:
+    date: '2021-05-13'
+    title: Documentation
+    description: 'Code documentation.'
   1.2.0:
     date: '2020-04-29'
     title: setByTag

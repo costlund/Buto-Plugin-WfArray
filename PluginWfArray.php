@@ -14,8 +14,8 @@ class PluginWfArray{
   }
   /**
    * 
-   * @param type $path_to_key
-   * @return type
+   * @param string $path_to_key
+   * @return array | string
    */
   public function get($path_to_key = null){
     if(strlen($path_to_key)){
