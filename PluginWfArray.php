@@ -13,9 +13,9 @@ class PluginWfArray{
     $this->array = $array;
   }
   /**
-   * 
-   * @param string $path_to_key
-   * @return array | string
+   * Get data.
+   * @param float $path_to_key
+   * @return mixed
    */
   public function get($path_to_key = null){
     if(strlen($path_to_key)){
