@@ -157,4 +157,7 @@ class PluginWfArray{
     $this->array = array_merge($this->array, $value);
     return null;
   }
+  public function is_set($path_to_key){
+    return wfArray::isKey($this->array, $path_to_key);
+  }
 }

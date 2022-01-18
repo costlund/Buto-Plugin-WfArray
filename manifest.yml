@@ -1,5 +1,9 @@
-version: 1.2.2
+version: 1.2.3
 history:
+  1.2.3:
+    date: '2022-01-18'
+    title: Method is_set
+    description: 'Add new method is_set() to check if a key exist.'
   1.2.2:
     date: '2021-05-20'
     title: Documentation

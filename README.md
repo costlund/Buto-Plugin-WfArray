@@ -1,36 +1,37 @@
 # Buto-Plugin-WfArray
 Handle arrays.
 
-## PHP
+## Methods
+### Object
 ```
-/**
- * Create object.
- */
 $data = new PluginWfArray();
-/**
- * Set data.
- */
+```
+Add data on construct.
+```
+$data = new PluginWfArray(array('name' => 'Sandra'));
+```
+### set
+How to set data.
+```
 $data->set('name', 'James');
 $data->set('travel/2018', array('London', 'Stockholm'));
 $data->set('travel/2018/', 'Barcelona');
-/**
- * Merge.
- */
-$data->merge(array('name' => 'John'));
-/**
- * Set by tag.
- */
-$data->set('colors', 'rs:colors');
-$data->setByTag(array('colors' => array('red', 'blue', 'green')));
 ```
-
-
-## Method
-
+### get
+How to get data.
+```
+echo $data->get('name');
+```
+Output
+```
+James
+```
+### merge
+```
+$data->merge(array('name' => 'John'));
+```
 ### setByTag
-
-Yml data
-
+Yml data to change with method setByTag().
 ```
 -
   type: span
@@ -39,11 +40,11 @@ Yml data
   type: span
   innerHTML: rs:calc_date_to/minutes
 ```
-
+PHP code.
 ```
 $element->setByTag(array('minutes' => 33, 'calc_date_to' => array('minutes' => 44)));
 ```
-
+Result
 ```
 -
   type: span
@@ -51,4 +52,10 @@ $element->setByTag(array('minutes' => 33, 'calc_date_to' => array('minutes' => 4
 -
   type: span
   innerHTML: 44
+```
+### is_set
+To check if a key exist.
+Returns true or false.
+```
+$element->is_set('calc_date_to/minutes');
 ```
