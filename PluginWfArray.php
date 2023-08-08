@@ -18,7 +18,7 @@ class PluginWfArray{
    * @return mixed
    */
   public function get($path_to_key = null){
-    if(strlen($path_to_key)){
+    if(strlen($path_to_key.'')){
       return wfArray::get($this->array, $path_to_key);
     }else{
       return $this->array;
@@ -97,7 +97,7 @@ class PluginWfArray{
     $data = $wf_arraysearch->get();
     if(sizeof($data)>0){
       $path_to_key = $data[0];
-      $path_to_key = substr($path_to_key, 1);
+      $path_to_key = wfSettings::sub_str($path_to_key, 1);
       $path_to_key = str_replace('/attribute/id', '', $path_to_key);
       if($key){
         $this->set($path_to_key.'/'.$key, $value);
@@ -129,21 +129,21 @@ class PluginWfArray{
      * Loop keys.
      */
     foreach ($keys as $key => $value) {
-      $str = $element->get(substr($value, 1));
+      $str = $element->get(wfSettings::sub_str($value, 1));
       /**
        * If key match.
        */
-      if(substr($str, 0, strlen($tag)+1) == $tag.':'){
-        $tag_key = substr($str, strlen($tag)+1);
+      if(wfSettings::sub_str($str, 0, strlen($tag)+1) == $tag.':'){
+        $tag_key = wfSettings::sub_str($str, strlen($tag)+1);
         /**
          * If key exist in data.
          */
         if(wfArray::isKey($data->get(), $tag_key)){
-          $this->set(substr($value, 1), $data->get($tag_key));
+          $this->set(wfSettings::sub_str($value, 1), $data->get($tag_key));
         }elseif($data->array && array_key_exists($tag_key, $data->array)){
-          $this->set(substr($value, 1), $data->get($tag_key));
+          $this->set(wfSettings::sub_str($value, 1), $data->get($tag_key));
         }elseif($clear_nomatch){
-          $this->set(substr($value, 1), null);
+          $this->set(wfSettings::sub_str($value, 1), null);
         }
       }
     }
