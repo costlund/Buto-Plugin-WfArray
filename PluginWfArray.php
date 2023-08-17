@@ -18,7 +18,7 @@ class PluginWfArray{
    * @return mixed
    */
   public function get($path_to_key = null){
-    if(strlen($path_to_key.'')){
+    if(wfPhpfunc::strlen($path_to_key.'')){
       return wfArray::get($this->array, $path_to_key);
     }else{
       return $this->array;
@@ -26,7 +26,7 @@ class PluginWfArray{
   }
   
   public function size($path_to_key = null){
-    if(strlen($path_to_key)){
+    if(wfPhpfunc::strlen($path_to_key)){
       return sizeof(wfArray::get($this->array, $path_to_key));
     }else{
       return sizeof($this->array);
@@ -64,7 +64,7 @@ class PluginWfArray{
     }
   }
   public function dump($path_to_key = null){
-    if(strlen($path_to_key)){
+    if(wfPhpfunc::strlen($path_to_key)){
       wfHelp::yml_dump(wfArray::get($this->array, $path_to_key));
     }else{
       wfHelp::yml_dump($this->array);
@@ -98,7 +98,7 @@ class PluginWfArray{
     if(sizeof($data)>0){
       $path_to_key = $data[0];
       $path_to_key = wfPhpfunc::substr($path_to_key, 1);
-      $path_to_key = str_replace('/attribute/id', '', $path_to_key);
+      $path_to_key = wfPhpfunc::str_replace('/attribute/id', '', $path_to_key);
       if($key){
         $this->set($path_to_key.'/'.$key, $value);
       }else{
@@ -133,8 +133,8 @@ class PluginWfArray{
       /**
        * If key match.
        */
-      if(wfPhpfunc::substr($str, 0, strlen($tag)+1) == $tag.':'){
-        $tag_key = wfPhpfunc::substr($str, strlen($tag)+1);
+      if(wfPhpfunc::substr($str, 0, wfPhpfunc::strlen($tag)+1) == $tag.':'){
+        $tag_key = wfPhpfunc::substr($str, wfPhpfunc::strlen($tag)+1);
         /**
          * If key exist in data.
          */
