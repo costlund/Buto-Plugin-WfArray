@@ -1,5 +1,13 @@
-version: 1.5.1
+version: 1.7.0
 history:
+  1.7.0:
+    date: '2024-05-29'
+    title: getString
+    description: 'Add metod getString.'
+  1.6.0:
+    date: '2024-05-28'
+    title: is_set
+    description: 'Rebuild method is_set using plugin wf/arraysearch. Method will now return true even if it has a null value.'
   1.5.1:
     date: '2023-09-11'
     title: Versions

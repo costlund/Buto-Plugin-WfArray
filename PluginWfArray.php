@@ -24,7 +24,17 @@ class PluginWfArray{
       return $this->array;
     }
   }
-  
+  /**
+   * getString
+   */
+  public function getString($path_to_key = null){
+    $data = $this->get($path_to_key);
+    $data = sfYaml::dump($data, 99);
+    return $data;
+  }
+  /**
+   * 
+   */
   public function size($path_to_key = null){
     if(wfPhpfunc::strlen($path_to_key)){
       return sizeof(wfArray::get($this->array, $path_to_key));
@@ -158,6 +168,10 @@ class PluginWfArray{
     return null;
   }
   public function is_set($path_to_key){
-    return wfArray::isKey($this->array, $path_to_key);
+    wfPlugin::includeonce('wf/arraysearch');
+    $wf_arraysearch = new PluginWfArraysearch();
+    $wf_arraysearch->data = array('data' => $this->array);
+    $data = $wf_arraysearch->get();
+    return in_array('/'.$path_to_key, $data);
   }
 }
