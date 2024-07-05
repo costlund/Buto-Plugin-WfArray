@@ -172,6 +172,10 @@ class PluginWfArray{
     $wf_arraysearch = new PluginWfArraysearch();
     $wf_arraysearch->data = array('data' => $this->array);
     $data = $wf_arraysearch->get();
-    return in_array('/'.$path_to_key, $data);
+    if(in_array('/'.$path_to_key, $data) || wfArray::isKey($this->array, $path_to_key)){
+      return true;
+    }else{
+      return false;
+    }
   }
 }

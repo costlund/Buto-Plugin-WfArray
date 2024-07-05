@@ -1,5 +1,9 @@
-version: 1.7.0
+version: 1.7.1
 history:
+  1.7.1:
+    date: '2024-07-05'
+    title: is_set
+    description: 'Improvement in method is_set.'
   1.7.0:
     date: '2024-05-29'
     title: getString
