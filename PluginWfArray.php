@@ -148,7 +148,7 @@ class PluginWfArray{
         /**
          * If key exist in data.
          */
-        if(wfArray::isKey($data->get(), $tag_key)){
+        if($data->is_set($tag_key)){
           $this->set(wfPhpfunc::substr($value, 1), $data->get($tag_key));
         }elseif($data->array && array_key_exists($tag_key, $data->array)){
           $this->set(wfPhpfunc::substr($value, 1), $data->get($tag_key));
